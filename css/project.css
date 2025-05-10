@@ -5,3 +5,9 @@
     }
   }
 
+/* Hide on desktop, show on mobile devices */
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none;
+  }
+}
