@@ -4,9 +4,4 @@
       display: none;
     }
   }
- /* Show project images last on small screens (phones) */
-@media (max-width: 991.98px) {
-  .responsive-row img {
-    margin-top: 1rem;
-  }
-}
+
