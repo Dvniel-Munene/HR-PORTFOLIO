@@ -13261,16 +13261,13 @@ a img.aligncenter {
 .toggle_menu {
 	cursor: pointer;
 	height: 60px;
-	left: 50%;
-	margin-left: -30px;
-	margin-top: -30px;
+	right: 20px;          /* align to the right */
+	top: 20px;            /* position near top */
 	opacity: 0.95;
 	position: absolute;
-	top: 50%;
 	visibility: visible;
 	width: 60px;
 	z-index: 1001;
-}
 
 .page_header_wrapper .toggle_menu {
 	z-index: 1003;
@@ -13283,13 +13280,7 @@ a img.aligncenter {
 	background-color: #323232;
 }
 
-.page_toplogo .toggle_menu {
-	left: auto;
-	margin: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-}
+
 
 .toggle_menu:hover span:before {
 	top: -9px;
