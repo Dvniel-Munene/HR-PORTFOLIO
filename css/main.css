@@ -13262,7 +13262,7 @@ a img.aligncenter {
 	cursor: pointer;
 	height: 60px;
 	right: 20px;          /* align to the right */
-	top: 10px;            /* position near top */
+	top: 5px;            /* position near top */
 	opacity: 0.95;
 	position: absolute;
 	visibility: visible;
