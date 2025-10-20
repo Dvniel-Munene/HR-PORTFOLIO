@@ -32,40 +32,89 @@
 		<script src="js/vendor/jquery-1.12.4.min.js"></script>
 	<![endif]-->
 	<style>
+/* ------------------------------------------------------------------
+   MOBILE-ONLY: make taglines auto-fit and never get cut off
+   Applies to devices narrower than Bootstrap's md breakpoint (phones)
+   ------------------------------------------------------------------ */
+@media (max-width: 767.98px) {
 
-		/* --- MOBILE OPTIMIZATION --- */
-	@media (max-width: 767.98px) {
+  /* Ensure containers respect box-sizing and small horizontal padding */
+  .intro_layers_wrapper,
+  .intro_layers,
+  .intro_layer {
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-		/* Greeting text (already responsive, just ensure no overflow) */
-		h2.intro_before_featured_word,
-		h3.intro_before_featured_word {
-			font-size: 1.3rem;
-			line-height: 1.4;
-			word-wrap: break-word;
-			word-break: break-word;
-			white-space: normal;
-			padding: 0 10px;
-		}
+  /* Greeting (keeps readable on phones) */
+  h2.intro_before_featured_word,
+  h3.intro_before_featured_word {
+    /* Dynamic size: min 1rem, preferred ~5.5vw, max 1.6rem */
+    font-size: clamp(1rem, 5.5vw, 1.6rem);
+    line-height: 1.25;
+    margin: 0 0 .4rem 0;
+    white-space: normal;
+    overflow-wrap: break-word;   /* allow long words to wrap */
+    word-break: break-word;
+    hyphens: auto;
+    display: block;
+    text-align: center;
+    padding: 0 6px;
+  }
 
-		/* Tagline adjustments for small screens */
-		h2.intro_featured_word {
-			font-size: 1.5rem; /* Adjust as needed for mobile readability */
-			line-height: 1.3;
-			word-wrap: break-word;
-			word-break: break-word;
-			white-space: normal;
-			padding: 0 10px;
-			display: inline-block;
-			max-width: 100%;
-			overflow-wrap: break-word;
-			text-align: center;
-		}
+  /* Tagline (the element you said was getting cut off) */
+  h2.intro_featured_word {
+    /* Use clamp + vw so the font scales with viewport, but stays between sensible sizes */
+    font-size: clamp(1.1rem, 6.2vw, 2rem);
+    line-height: 1.08;            /* tight but readable */
+    margin: 0.25rem 0 0.5rem;
+    white-space: normal;          /* allow wrapping */
+    overflow-wrap: anywhere;      /* strong wrap behavior to prevent overflow */
+    word-break: break-word;       /* break very long words if needed */
+    hyphens: auto;                /* allow hyphenation on supported browsers */
+    display: block;               /* important: inline-block can prevent wrapping properly */
+    width: 100%;
+    max-width: calc(100% - 24px);
+    box-sizing: border-box;
+    padding: 0 12px;
+    text-align: center;
+    text-transform: uppercase;    /* preserve existing uppercase behavior */
+    /* small letter-spacing tweak helps multi-word lines fit better on tiny screens */
+    letter-spacing: -0.2px;
+  }
 
-		/* Optional: reduce extra spacing on slides for compact view */
-		.intro_layers_wrapper {
-			padding: 0 5px;
-		}
-	}
+  /* If you used <br> to force line breaks, let the browser decide first.
+     If a <br> forces undesirable clipping, you can hide it on small screens:
+     Uncomment the next rule to remove forced <br> breaks on phones. */
+  /*
+  h2.intro_featured_word br {
+    display: none;
+  }
+  */
+
+  /* Small screens: ensure flexslider / slide images don't create overflow */
+  .flexslider,
+  .flexslider .slides,
+  .flexslider .slides li {
+    overflow: visible;
+  }
+
+  /* Make sure icons and inline-block groups don't overflow the line */
+  .intro_layer .d-inline-block {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+}
+
+/* ------------------------------------------------------------------
+   SAFEGUARD: do not change desktop/tablet styles - larger screens keep original CSS
+   ------------------------------------------------------------------ */
+@media (min-width: 768px) {
+  /* No overrides here — desktop/tablet keep your existing styles */
+}
 		</style>
 </head>
 
