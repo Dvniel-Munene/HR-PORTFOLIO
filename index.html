@@ -31,91 +31,7 @@
 		<script src="js/vendor/respond.min.js"></script>
 		<script src="js/vendor/jquery-1.12.4.min.js"></script>
 	<![endif]-->
-	<style>
-/* ------------------------------------------------------------------
-   MOBILE-ONLY: make taglines auto-fit and never get cut off
-   Applies to devices narrower than Bootstrap's md breakpoint (phones)
-   ------------------------------------------------------------------ */
-@media (max-width: 767.98px) {
-
-  /* Ensure containers respect box-sizing and small horizontal padding */
-  .intro_layers_wrapper,
-  .intro_layers,
-  .intro_layer {
-    box-sizing: border-box;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  /* Greeting (keeps readable on phones) */
-  h2.intro_before_featured_word,
-  h3.intro_before_featured_word {
-    /* Dynamic size: min 1rem, preferred ~5.5vw, max 1.6rem */
-    font-size: clamp(1rem, 5.5vw, 1.6rem);
-    line-height: 1.25;
-    margin: 0 0 .4rem 0;
-    white-space: normal;
-    overflow-wrap: break-word;   /* allow long words to wrap */
-    word-break: break-word;
-    hyphens: auto;
-    display: block;
-    text-align: center;
-    padding: 0 6px;
-  }
-
-  /* Tagline (the element you said was getting cut off) */
-  h2.intro_featured_word {
-    /* Use clamp + vw so the font scales with viewport, but stays between sensible sizes */
-    font-size: clamp(1.1rem, 6.2vw, 2rem);
-    line-height: 1.08;            /* tight but readable */
-    margin: 0.25rem 0 0.5rem;
-    white-space: normal;          /* allow wrapping */
-    overflow-wrap: anywhere;      /* strong wrap behavior to prevent overflow */
-    word-break: break-word;       /* break very long words if needed */
-    hyphens: auto;                /* allow hyphenation on supported browsers */
-    display: block;               /* important: inline-block can prevent wrapping properly */
-    width: 100%;
-    max-width: calc(100% - 24px);
-    box-sizing: border-box;
-    padding: 0 12px;
-    text-align: center;
-    text-transform: uppercase;    /* preserve existing uppercase behavior */
-    /* small letter-spacing tweak helps multi-word lines fit better on tiny screens */
-    letter-spacing: -0.2px;
-  }
-
-  /* If you used <br> to force line breaks, let the browser decide first.
-     If a <br> forces undesirable clipping, you can hide it on small screens:
-     Uncomment the next rule to remove forced <br> breaks on phones. */
-  /*
-  h2.intro_featured_word br {
-    display: none;
-  }
-  */
-
-  /* Small screens: ensure flexslider / slide images don't create overflow */
-  .flexslider,
-  .flexslider .slides,
-  .flexslider .slides li {
-    overflow: visible;
-  }
-
-  /* Make sure icons and inline-block groups don't overflow the line */
-  .intro_layer .d-inline-block {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-  }
-}
-
-/* ------------------------------------------------------------------
-   SAFEGUARD: do not change desktop/tablet styles - larger screens keep original CSS
-   ------------------------------------------------------------------ */
-@media (min-width: 768px) {
-  /* No overrides here — desktop/tablet keep your existing styles */
-}
-		</style>
+	
 </head>
 
 <body>
@@ -311,155 +227,172 @@
 			
 <!-- SLIDE 1 -->
 <li class="ds text-center">
-	<img src="images/slide11.png" alt="">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="intro_layers_wrapper">
-					<div class="intro_layers">
+  <img src="images/slide11.png" alt="Slide 1 Background">
 
-						<!-- Greeting -->
-						<div class="intro_layer" data-animation="fadeInLeft">
-							<h3 class="intro_before_featured_word d-none d-md-block">
-								Hi, I'm Carol Mango!
-							</h3>
-							<h2 class="intro_before_featured_word d-block d-md-none">
-								Hi, I'm Carol Mango!
-							</h2>
-						</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
 
-						<!-- Tagline -->
-						<div class="intro_layer" data-animation="fadeInRight">
-							<h2 class="text-uppercase intro_featured_word">
-								People &amp; Culture Leader
-								<br>
-							</h2>
-						</div>
+        <div class="intro_layers_wrapper">
+          <div class="intro_layers">
 
-						<!-- Social Icons -->
-						<div class="intro_layer" data-animation="fadeIn">
-							<div class="d-inline-block">
-								<a href="https://www.linkedin.com/in/daniel-munene-4593bb294/" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-linkedin fa-2x"></i>
-								</a>
-								<a href="#" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-facebook fa-2x"></i>
-								</a>
-								<a href="#" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-twitter fa-2x"></i>
-								</a>
-								<a href="#" target="_blank">
-									<i class="fa-brands fa-instagram fa-2x"></i>
-								</a>
-							</div>
-						</div>
+            <!-- Greeting -->
+            <div class="intro_layer" data-animation="fadeInLeft">
+              <!-- Large screens -->
+              <h3 class="intro_before_featured_word d-none d-md-block">
+                Hi, I'm Carol Mango!
+              </h3>
+              <!-- Mobile screens -->
+              <h2 class="intro_before_featured_word d-block d-md-none">
+                Hi, I'm Carol Mango!
+              </h2>
+            </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- Tagline -->
+            <div class="intro_layer" data-animation="fadeInRight">
+              <h2 class="text-uppercase intro_featured_word">
+                People &amp; Culture Leader
+              </h2>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="intro_layer" data-animation="fadeIn">
+              <div class="d-inline-block">
+                <a href="https://www.linkedin.com/in/daniel-munene-4593bb294/" target="_blank" class="me-2">
+                  <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+                <a href="#" target="_blank" class="me-2">
+                  <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+                <a href="#" target="_blank" class="me-2">
+                  <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+                <a href="#" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- eof .intro_layers_wrapper -->
+
+      </div>
+    </div>
+  </div>
 </li>
 
 <!-- SLIDE 2 -->
 <li class="ds text-center">
-	<img src="images/slide11.png" alt="">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="intro_layers_wrapper">
-					<div class="intro_layers">
+  <img src="images/slide11.png" alt="Slide 2 Background">
 
-						<!-- Description -->
-						<div class="intro_layer" data-animation="pullUp">
-							<h3 class="intro_before_featured_word">
-								I am a highly versatile, multidisciplinary and accomplished professional woman with a rich background in education, publishing, HR, gender studies, healthcare, and film and television studies.<br>
-								I hold a PhD in Film and Television Studies, with a strong research interest in postcolonial African feminist theory.
-							</h3>
-						</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
 
-						<!-- Tagline -->
-						<div class="intro_layer" data-animation="pullDown">
-							<h2 class="text-uppercase intro_featured_word">
-								Strategic Human Capital <br>And Development Expert
-								<br>
-							</h2>
-						</div>
+        <div class="intro_layers_wrapper">
+          <div class="intro_layers">
 
-						<!-- Social Icons -->
-						<div class="intro_layer" data-animation="fadeIn">
-							<div class="d-inline-block">
-								<a href="https://www.linkedin.com/in/daniel-munene-4593bb294/" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-linkedin fa-2x"></i>
-								</a>
-								<a href="#" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-facebook fa-2x"></i>
-								</a>
-								<a href="#" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-twitter fa-2x"></i>
-								</a>
-								<a href="#" target="_blank">
-									<i class="fa-brands fa-instagram fa-2x"></i>
-								</a>
-							</div>
-						</div>
+            <!-- Description -->
+            <div class="intro_layer" data-animation="pullUp">
+              <h3 class="intro_before_featured_word">
+                I am a highly versatile, multidisciplinary, and accomplished professional woman with a rich background
+                in education, publishing, HR, gender studies, healthcare, and film and television studies.
+                <br>
+                I hold a PhD in Film and Television Studies, with a strong research interest in postcolonial African feminist theory.
+              </h3>
+            </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- Tagline -->
+            <div class="intro_layer" data-animation="pullDown">
+              <h2 class="text-uppercase intro_featured_word">
+                Strategic Human Capital <br>
+                And Development Expert
+              </h2>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="intro_layer" data-animation="fadeIn">
+              <div class="d-inline-block">
+                <a href="https://www.linkedin.com/in/daniel-munene-4593bb294/" target="_blank" class="me-2">
+                  <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+                <a href="#" target="_blank" class="me-2">
+                  <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+                <a href="#" target="_blank" class="me-2">
+                  <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+                <a href="#" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- eof .intro_layers_wrapper -->
+
+      </div>
+    </div>
+  </div>
 </li>
 
 <!-- SLIDE 3 -->
 <li class="ds text-center">
-	<img src="images/slide11.png" alt="">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="intro_layers_wrapper">
-					<div class="intro_layers">
+  <img src="images/slide11.png" alt="Slide 3 Background">
 
-						<!-- Description -->
-						<div class="intro_layer" data-animation="pullDown">
-							<h3 class="intro_before_featured_word">
-								With a proven ability to work across sectors with integrity, creativity, and leadership, I am passionate about inclusive practices,
-								empowering women, and delivering excellence in academia, caregiving, and community-based initiatives.
-							</h3>
-						</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
 
-						<!-- Tagline -->
-						<div class="intro_layer" data-animation="pullUp">
-							<h2 class="text-uppercase intro_featured_word">
-								Inclusive Leadership And <br>Gender Equality Advocate
-								<br>
-							</h2>
-						</div>
+        <div class="intro_layers_wrapper">
+          <div class="intro_layers">
 
-						<!-- Social Icons -->
-						<div class="intro_layer" data-animation="fadeIn">
-							<div class="d-inline-block">
-								<a href="https://www.linkedin.com/in/daniel-munene-4593bb294/" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-linkedin fa-2x"></i>
-								</a>
-								<a href="#" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-facebook fa-2x"></i>
-								</a>
-								<a href="#" target="_blank" style="margin-right:10px;">
-									<i class="fa-brands fa-twitter fa-2x"></i>
-								</a>
-								<a href="#" target="_blank">
-									<i class="fa-brands fa-instagram fa-2x"></i>
-								</a>
-							</div>
-						</div>
+            <!-- Description -->
+            <div class="intro_layer" data-animation="pullDown">
+              <h3 class="intro_before_featured_word">
+                With a proven ability to work across sectors with integrity, creativity, and leadership,
+                I am passionate about inclusive practices, empowering women, and delivering excellence
+                in academia, caregiving, and community-based initiatives.
+              </h3>
+            </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- Tagline -->
+            <div class="intro_layer" data-animation="pullUp">
+              <h2 class="text-uppercase intro_featured_word">
+                Inclusive Leadership And <br>
+                Gender Equality Advocate
+              </h2>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="intro_layer" data-animation="fadeIn">
+              <div class="d-inline-block">
+                <a href="https://www.linkedin.com/in/daniel-munene-4593bb294/" target="_blank" class="me-2">
+                  <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+                <a href="#" target="_blank" class="me-2">
+                  <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+                <a href="#" target="_blank" class="me-2">
+                  <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+                <a href="#" target="_blank">
+                  <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- eof .intro_layers_wrapper -->
+
+      </div>
+    </div>
+  </div>
 </li>
+
 		</ul>
 
 		<!-- Navigation Arrows -->
